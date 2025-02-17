@@ -1,0 +1,237 @@
+@import url("https://fonts.googleapis.com/css2?family=Jacquard+24&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Monomakh&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+.container-fluid{
+    background-color: #f9f4ed;
+    padding: 0px;
+    margin: 0px;
+    font-family: "Roboto", serif;
+ 
+    
+    
+}
+/* Navbar Container */
+.nav-container {
+  display: flex;
+  justify-content: flex-end; /* Moves nav to the right */
+  
+  padding: 10px 20px;
+}
+
+/* Navigation Tabs */
+.nav-tabs {
+  list-style: none;
+  display: flex;
+  gap: 15px; /* Space between items */
+  padding: 0;
+  margin: 0;
+}
+
+/* Navigation Items */
+.nav-item {
+  color: white;
+  font-size: 26px;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Hover Animation */
+.nav-item:hover {
+  background-color: rgb(82, 82, 82); 
+  transform: scale(1.1); /* Slightly enlarges */
+  color: white;
+}
+
+.header{
+  /* background-color: rgba(68, 67, 67, 0.945); */
+  background-color: rgb(39, 39, 39);
+  padding: 10px;
+  margin-bottom: 10px;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: white;
+  font-family: "Jacquard 24", serif;
+  font-weight: 400;
+  font-style: normal;
+
+}
+.card-title{
+    z-index: 1;
+}
+
+.breakingNews{
+    border-style: none;
+    position: relative;
+    overflow: hidden;
+    height: 600px;
+    margin-left: 5px;
+}
+
+.breaking-news {
+    position: relative;
+    overflow: hidden;
+  }
+
+.input-group{
+    width: 500px;
+    margin: 10px;
+    padding: 5px;
+    border-radius: 10rem;
+   
+
+}
+.input{
+  border-radius: 10rem;
+
+}
+  
+  .breaking-news-img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .overlay {
+    position: absolute;
+    bottom: 0; /* Align text to the bottom */
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6); 
+    color: white;
+    padding: 10px;
+  }
+  
+  .overlay h5, .overlay p {
+    margin: 0;
+    padding: 5px;
+  }
+  
+  .overlay a {
+    display: inline-block;
+    margin-top: 5px;
+  }
+  
+  
+
+  /* Container for latest news */
+.latest-news-container {
+  margin-left: 15px;
+  margin-top: 20px;
+  overflow: hidden;
+}
+
+/* Scrollable container */
+.scroll-container {
+  display: flex;
+  overflow-x: auto;  
+  
+  gap: 20px; /* Space between cards */
+  padding-bottom: 10px;
+}
+
+/* Hide scrollbar */
+.scroll-container::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Edge */
+}
+
+.search-header{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.clear-btn{
+  font-size: 13px;
+  font-weight: 600;
+  padding: .75rem 1.25rem;
+  border-radius: 10rem;
+
+}
+
+/* Latest news cards */
+.latest-news-card {
+  flex: 0 0 auto; /* Prevents cards from stretching */
+  width: 330px; /* Adjust width of each card */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+ .featured-news-card{
+  /* display: flex;
+  flex-direction: row; */
+
+  margin-left: 15px;
+  gap: 10px;
+  width: 600px;
+  height: 400px;
+  margin-bottom: 50px;
+}
+.card-img-top{
+  border-radius: 20px;
+  margin-bottom: 5px;
+} 
+
+
+.btn-read-more {
+  position: relative;
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 600;
+  padding: .75rem 1.25rem;
+  border-radius: 10rem;
+  
+  background-color: rgb(3, 164, 204); /* Initial button color */
+  color: white;
+  border: none;
+  
+  text-decoration: none;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Adding a background that will slide in from the left */
+.btn-read-more::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: rgb(2, 74, 92); /* Hover color */
+  transition: width 0.3s ease-in-out;
+  z-index: -1; /* Push it behind the text */
+}
+
+.btn-read-more:hover::before {
+  width: 100%; /* Expand from left to right */
+}
+
+.btn-read-more:hover {
+  transform: scale(1.1); 
+  color: white; /* Keep text color consistent */
+  padding-right: 40px; 
+}
+
+/* Arrow transition effect */
+.btn-read-more::after {
+  content: '→';
+  position: absolute;
+  opacity: 0;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: opacity 0.3s ease-in-out, right 0.3s ease-in-out;
+}
+
+.btn-read-more:hover::after {
+  opacity: 1;
+  right: 15px;
+}
+
+
+  

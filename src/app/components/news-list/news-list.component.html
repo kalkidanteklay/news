@@ -1,0 +1,154 @@
+<div class="container-fluid">
+
+    <div class=" header">
+    <p class="h1">Hot News</p>
+
+    <!-- Navigation Tabs -->
+    <div class="nav-container">
+      <ul class="nav-tabs">
+        <li class="nav-item" *ngFor="let category of categories" 
+            (click)="fetchCategoryNews(category)" 
+            [class.active]="selectedCategory === category">
+          {{ category }}
+        </li>
+      </ul>
+    </div>
+      
+</div>
+<div *ngIf="categoryNews.length > 0">
+  <h2>{{ selectedCategory }} News</h2>
+  <div class="row">
+    <div class="col-md-4" *ngFor="let article of categoryNews">
+      <div class="card">
+        <img [src]="article.urlToImage" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">{{ article.title }}</h5>
+          <p class="card-text">{{ article.description }}</p>
+          <a [href]="article.url" target="_blank" class="btn btn-primary">Read More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Loading State -->
+    <div *ngIf="loading">
+        <p>Loading news...</p>
+    </div>
+
+    <!-- Error Message -->
+    <div *ngIf="errorMessage" class="alert alert-danger">
+        {{ errorMessage }}
+    </div>
+
+    
+
+    <div class="input-group">
+        <input class="input" #searchBox type="text" class="form-control" placeholder="Search..." aria-label="Search">
+        <!-- <div class="input-group-append"> -->
+          <span class="input-group-text">
+            <i (click)="searchNews(searchBox.value)"class="bi bi-search"></i> <!-- Bootstrap Icons -->
+          </span>
+        <!-- </div> -->
+      </div>
+      
+      <div *ngIf="searchResults.length > 0">
+        <div class="search-header">
+        <h2>Search Results</h2>
+        <button (click)="searchResults = []" class="clear-btn btn btn-secondary">Clear Results</button>
+      </div>
+        <div class="row">
+          <div class="col-md-4" *ngFor="let article of searchResults">
+            <div class="scroll-container">
+            <div class="card">
+              <img [src]="article.urlToImage" class="card-img-top" alt="News Image">
+              <div class="card-body">
+                <h5 class="card-title">{{ article.title }}</h5>
+                <p class="card-text">{{ article.description }}</p>
+                <a [href]="article.url" target="_blank" class="btn-read-more">Read More</a>
+              </div>
+            </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      
+    
+    <div class="row">
+        
+        <div class="col-lg-9">
+         
+            <div class="breakingNews card mb-4  position-relative">
+                
+                <div class="card-header bg-danger text-white">
+                    <h3 class="mb-0"> </h3>
+                    
+                </div>
+                <img [src]="breakingNews.urlToImage" class="card-img-top breaking-news-img" alt="Breaking News Image">
+                <div class="card-body">
+                    <div class="overlay">
+                    <h5 class="card-title">{{ breakingNews.title }}</h5>
+                    <p class="card-text">{{ breakingNews.description }}</p>
+                    <a [href]="breakingNews.url" class="btn-read-more btn btn-primary" target="_blank">Read More</a>
+                </div>
+                </div>
+            </div>
+
+            <div class="latest-news-container">
+                <h2>Latest News</h2>
+                
+                <div class="scroll-container">
+                  <div class=" latest-news-card" *ngFor="let article of newsArticles">
+                    <img [src]="article.urlToImage" class="card-img-top" alt="News Image">
+                    <div >
+                      <h5 class="">{{ article.title }}</h5>
+                      <p class="">{{ article.description }}</p>
+                      <a [href]="article.url" class="btn-read-more" target="_blank">Read More</a> 
+                      
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+              
+        </div>
+
+        <!-- Right Column: Trending Sidebar -->
+        <div class="col-lg-3">
+            <div class="card">
+                <div class="card-header bg-dark text-white">
+                    <h5 class="mb-0">🔥 Trending Now</h5>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group">
+                         <li class="list-group-item" *ngFor="let trend of trending">
+                            <div class="card-body">
+                                <a [href]="trend.url" target="_blank">{{trend.title}}</a>
+                                
+                                <!-- <p class="card-text">{{ trend.description }}</p> -->
+                                
+                               
+                            </div>
+                           
+                        </li> 
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class=" fetaured-container">
+      <h2>Featured</h2>
+      <div class="row card featured-news-card" *ngFor="let featured of featured">
+                    
+          <img [src]="featured.urlToImage" class=" col-lg-6 card-img-top" alt="News Image">
+           <div col-lg-6  >
+              <h5 >{{ featured.title }}</h5>
+              <p class="">{{ featured.description }}</p>
+              <a [href]="featured.url" class="btn-read-more" target="_blank">Read More</a> 
+                      
+            </div>
+      </div>
+    </div>
+</div>
